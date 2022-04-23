@@ -1,0 +1,17 @@
+[
+  {
+    "linkText":"Home",
+    "icon" : "fa fa-home fa-inverse",
+    "link": "/home"
+  },
+  {
+    "linkText":"Profile",
+    "icon" : "fa fa-user fa-inverse",
+    "link": "/profile"
+  },
+  {
+    "linkText":"Weather",
+    "icon" : "fa fa-user fa-inverse",
+    "link": "/weather"
+  }
+]

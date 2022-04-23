@@ -1,0 +1,11 @@
+[
+  {
+    "sunny": "sunny",
+    "cloudy": "cloudy",
+    "rainy" : "rainy",
+    "partlyCloudy" : "partlyCloudy",
+    "snowy": "snowy",
+    "windy": "windy"
+
+  }
+]

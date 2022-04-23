@@ -1,0 +1,43 @@
+[
+  {
+    "type": "forecast",
+    "profilePic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4BBOp2lTKpGqKeubSWEtnIlBM5ecCjhO6ZQ&usqp=CAU",
+    "userName": "Elon Musk",
+    "handle": "elonmusk",
+    "time": "23h",
+    "postText": "Amazing show about <a href='#'>@Inspiration4x</a> mission!",
+    "day1": {
+      "weather": "sunny",
+      "temp": "70",
+      "note": "Sunny right around 70 degrees"
+    },
+    "day2": {
+      "weather": "cloudy",
+      "temp": "60",
+      "note": "Cloudy early around 60 degrees"
+    },
+    "day3": {
+      "weather": "rainy",
+      "temp": "50",
+      "note": "Rain late"
+    },
+    "replies": "4.2K",
+    "reposts": "3.5K",
+    "likes": "37.5K"
+  },
+  {
+    "type": "normal",
+    "profilePic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4BBOp2lTKpGqKeubSWEtnIlBM5ecCjhO6ZQ&usqp=CAU",
+    "userName": "Elon Musk",
+    "handle": "elonmusk",
+    "time": "23h",
+    "postText": "Amazing show about <a href='#'>@Inspiration4x</a> mission!",
+    "postPic": "https://cdn.mos.cms.futurecdn.net/z84zZNCTpphuY46UWAsMJj.jpg",
+    "picTitle": "Countdown: Inspiration4 Mission to Space | Netflix Official Site",
+    "picSummary": "From training to launch to landing, this all-access docuseries rides along with the Inspiration4 crew on the first all-civilian orbital space...",
+    "picLink": "netflix.com",
+    "replies": "4.2K",
+    "reposts": "3.5K",
+    "likes": "37.5K"
+  }
+]

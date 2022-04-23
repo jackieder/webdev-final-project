@@ -6,7 +6,7 @@ import forecast from "./forecast";
 const NormalItem = ({
                      post = {
                          type: "normal",
-                         profilePic: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4BBOp2lTKpGqKeubSWEtnIlBM5ecCjhO6ZQ&usqp=CAU",
+                         profilePic: "",
                          userName: "Elon Musk",
                          handle: "elonmusk",
                          time: "23h",
@@ -56,7 +56,7 @@ const NormalItem = ({
 const ForecastItem = ({
                         post = {
                             type: "forecast",
-                            profilePic: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4BBOp2lTKpGqKeubSWEtnIlBM5ecCjhO6ZQ&usqp=CAU",
+                            profilePic: "",
                             userName: "Elon Musk",
                             handle: "elonmusk",
                             time: "23h",

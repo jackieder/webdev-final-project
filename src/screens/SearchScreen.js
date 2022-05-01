@@ -11,7 +11,7 @@ const SearchScreen = () => {
     const searchURL = 'https://www.omdbapi.com/?apikey=840eec6b'
     const navigate = useNavigate()
     const searchMovies = async () => {
-        const searchTerm = searchRef.current.value || movieSearch || 'batman'
+        const searchTerm = searchRef.current.value || movieSearch || ""
         const response = await axios.get(`${searchURL}&s=${searchTerm}`)
         setMovies(response.data.Search)
         searchRef.current.value = searchTerm
@@ -31,14 +31,14 @@ const SearchScreen = () => {
                         <button onClick={searchMovies} className="btn btn-secondary my-2 my-sm-0 float-end"  type="submit">Search</button>
                     </li>
                     {
-                        movies.map(movie =>
+                        movies && movies.map(movie =>
                             <li className="list-group-item">
                                 <Link to={`/details/${movie.imdbID}`}>
                                     <img src={movie.Poster} className="me-2" height={30}/>
                                     {movie.Title}
                                 </Link>
                             </li>
-                        )
+                        ) || "No Results"
                     }
 
                 </ul>

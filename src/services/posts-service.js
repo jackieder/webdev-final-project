@@ -7,6 +7,13 @@ export const findAllPosts = async () => {
     const posts = response.data;
     return posts;
 }
+
+export const findPosts = async (movie) => {
+    const response = await axios.get(`${POSTS_API}/${movie}`);
+    const posts = response.data;
+    return posts;
+}
+
 export const createPost = async (post) => {
     const response = await axios.post(POSTS_API, post);
     return response;
@@ -19,5 +26,10 @@ export const updatePost = async (post) => {
 export const deletePost = async (post) => {
     const response = await axios
         .delete(`${POSTS_API}/${post._id}`);
+    return response;
+}
+
+export const findReviewsByUser = async (userId) => {
+    const response = await axios.get(`${POSTS_API}/&user=${userId}`)
     return response;
 }

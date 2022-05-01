@@ -1,5 +1,6 @@
 import React, {useContext, useState} from "react";
 import * as service from "../services/authorization-service";
+import {updateUser} from "../services/users-service";
 
 const ProfileContext = React.createContext()
 
@@ -9,6 +10,19 @@ export const ProfileProvider = ({children}) => {
     const signin = async (email, password) => {
         try {
             const p = await service.signin(
+                email,
+                password
+            )
+            setProfile(p)
+        } catch (e) {
+            throw e
+        }
+    }
+
+    const editProfile = async (id, email, password) => {
+        try {
+            const p = await updateUser(
+                id,
                 email,
                 password
             )
@@ -41,7 +55,7 @@ export const ProfileProvider = ({children}) => {
         }
     }
 
-    const value = {profile, signup, checkLoggedIn, signin}
+    const value = {profile, signup, checkLoggedIn, signin, editProfile}
     return(
         <ProfileContext.Provider value={value}>
             {children}

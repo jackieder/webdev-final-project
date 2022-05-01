@@ -10,8 +10,8 @@
     "link": "/profile"
   },
   {
-    "linkText":"Weather",
+    "linkText":"Search",
     "icon" : "fa fa-user fa-inverse",
-    "link": "/weather"
+    "link": "/search"
   }
 ]

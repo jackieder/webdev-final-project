@@ -1,18 +1,18 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import FollowingItem from "./FollowingItem";
-import people from "../data/following.json"
+import FollowerItem from "./FollowerItem";
+import people from "../../components/data/following.json"
 
-const FollowingList = () => {
+const FollowerList = () => {
     return (
         <ul className="ps-0">
             {
                 people.map(person => {
-                    return(<FollowingItem person={person}/>);
+                    return(<FollowerItem person={person}/>);
                 })
             }
         </ul>
     )
 }
 
-export default FollowingList
+export default FollowerList

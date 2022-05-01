@@ -7,8 +7,17 @@ export const findAllPosts = async () => {
     const posts = response.data;
     return posts;
 }
-
 export const createPost = async (post) => {
-    const response = await axios.get(POSTS_API, post);
-    return post;
+    const response = await axios.post(POSTS_API, post);
+    return response;
+}
+export const updatePost = async (post) => {
+    const response = await axios
+        .put(`${POSTS_API}/${post._id}`, post);
+    return response;
+}
+export const deletePost = async (post) => {
+    const response = await axios
+        .delete(`${POSTS_API}/${post._id}`);
+    return response;
 }

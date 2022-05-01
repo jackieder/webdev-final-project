@@ -1,3 +1,5 @@
+import React from 'react';
+
 const FeedItem = ({
                      post = {
 
@@ -13,10 +15,13 @@ const FeedItem = ({
     const day = postDate.getDay();
     return (
         <>
-            <li className="list-group-item">
-                <h6>{post.textContent}</h6>
-                <h6>{month + "-" + day + "-" + year}</h6>
-                <h6>{post.user}</h6>
+            <li className="list-group-item list-group-item-action flex-column align-items-start active">
+                <div className="d-flex w-100 justify-content-between">
+                    <h3 className="mb-1">{post.text}</h3>
+                    <small>{month + "-" + day + "-" + year}</small>
+                </div>
+                <small>posted by: {post.user}</small>
+
             </li>
         </>
     )

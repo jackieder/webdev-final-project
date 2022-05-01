@@ -1,6 +1,6 @@
 import React from "react";
 
-const forecast = (day1, day2, day3) => {
+const postForecast = (day1, day2, day3) => {
     return (
         <div className="row d-flex justify-content-end align-items-center ps-4">
             <div className="col my-3 ps-5">
@@ -17,4 +17,4 @@ const forecast = (day1, day2, day3) => {
     )
 }
 
-export default forecast
+export default postForecast

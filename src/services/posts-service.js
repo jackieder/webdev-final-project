@@ -14,8 +14,16 @@ export const findPosts = async (movie) => {
     return posts;
 }
 
-export const createPost = async (post) => {
-    const response = await axios.post(POSTS_API, post);
+export const createPost = async (userId, post, movieId) => {
+
+    const data = {
+        "userId": userId,
+        "body": {
+            "text": post,
+            "movieId": movieId
+        }
+    }
+    const response = await axios.post(POSTS_API, data);
     return response;
 }
 export const updatePost = async (post) => {

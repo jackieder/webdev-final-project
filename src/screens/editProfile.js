@@ -32,13 +32,11 @@ const EditProfile = () => {
     }, [])
     const submitEdit = async () => {
         try {
-            console.log("submit")
             await editProfile(
                 profile._id,
                 emailRef.current.value,
                 passwordRef.current.value
             )
-            console.log("profile", profile.email, profile.password)
             navigate("/profile")
         } catch (e) {
             alert('Error Updating Profile')

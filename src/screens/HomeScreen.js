@@ -29,7 +29,7 @@ const HomeScreen = () => {
 
                 <div className="container-fluid">
                     <div className="col-8">
-                        <CreatePost/>
+
                         <PostFeed/>
                     </div>
 

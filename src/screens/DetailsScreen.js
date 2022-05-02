@@ -5,6 +5,8 @@ import {Link, useNavigate, useParams} from "react-router-dom";
 import {findPosts} from "../services/posts-service";
 import {useDispatch, useSelector} from "react-redux";
 import {useProfile} from "../contexts/profile-context";
+import CreatePost from "../components/Feed/CreatePost";
+import {findUser} from "../services/users-service";
 
 
 const DetailsScreen = () => {
@@ -19,8 +21,14 @@ const DetailsScreen = () => {
         setMovie(response.data)
     }
     const getReviews = async () => {
-        const response = findPosts((imdbID))
-        setReviews(response.data)
+        const response = await findPosts(imdbID)
+        console.log("gettingrevuews", response)
+        setReviews(response)
+    }
+    const getUser = async (id) => {
+        const response = await findUser(id)
+        const email = response.email
+        return email
     }
     useEffect(() => {
     getDetails()
@@ -38,9 +46,7 @@ const DetailsScreen = () => {
                 </div>
             )}
             <ul>
-                {
-                    console.log(profile)
-                }
+                {profile && <CreatePost movieId={movie.imdbID}/>}
             </ul>
             <ul>
                 {
@@ -48,7 +54,7 @@ const DetailsScreen = () => {
                             <div className="d-flex w-100 justify-content-between">
                                 <h3 className="mb-1">{review.text}</h3>
                             </div>
-                            <small>posted by: {review.user}</small>
+                            <small>posted by: {review.email}</small>
 
                         </li>
 

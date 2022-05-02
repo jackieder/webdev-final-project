@@ -17,7 +17,6 @@ export const updateUser = async (userId, email, password) => {
     if(password !== "") {
         data["password"] = password
     }
-    console.log(data)
     const response = await axios.put(`${USERS_API}/${userId}`,data);
     const user = response.data;
     return data;

@@ -50,7 +50,7 @@ const DetailsScreen = () => {
                 </div>
             )}
             <ul>
-                {profile && <CreatePost movieId={movie.imdbID}/>}
+                {profile && profile.userType === "critic" && <CreatePost movieId={movie.imdbID}/>}
             </ul>
             <ul>
                 {

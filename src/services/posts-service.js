@@ -38,7 +38,8 @@ export const deletePost = async (id) => {
 }
 
 export const findReviewsByUser = async (userId) => {
-    const response = await axios.get(`${POSTS_API}?user=${userId}`)
+    console.log(userId)
+    const response = await axios.get(`${POSTS_API}/?user=${userId}`)
     console.log(response)
     return response;
 }

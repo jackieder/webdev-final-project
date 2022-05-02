@@ -36,6 +36,14 @@ export const deletePost = async (id) => {
         .delete(`${POSTS_API}/${id}`);
     return response;
 }
+export const upvoteCriticReview = async (id, userId) => {
+    const data = {
+        "reviewId": id,
+        "userId": userId
+    }
+    const response = await axios.put(`${POSTS_API}/upvote`, data)
+    return response;
+}
 
 export const findReviewsByUser = async (userId) => {
     console.log(userId)

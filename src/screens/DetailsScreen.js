@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import axios from "axios";
 import NavigationBar from "./../components/Navigation";
 import {Link, useNavigate, useParams} from "react-router-dom";
-import {deletePost, findPosts} from "../services/posts-service";
+import {deletePost, findPosts, upvoteCriticReview} from "../services/posts-service";
 import {useDispatch, useSelector} from "react-redux";
 import {useProfile} from "../contexts/profile-context";
 import CreatePost from "../components/Feed/CreatePost";
@@ -34,6 +34,11 @@ const DetailsScreen = () => {
         const response = await deletePost(reviewId)
         getReviews()
     }
+    const upvoteReview = async (event) => {
+        const reviewId = event.target.id
+        const response = await upvoteCriticReview(reviewId, profile._id)
+        getReviews()
+    }
     useEffect(() => {
     getDetails()
         getReviews()}, [])
@@ -52,6 +57,7 @@ const DetailsScreen = () => {
             <ul>
                 {profile && profile.userType === "critic" && <CreatePost movieId={movie.imdbID}/>}
             </ul>
+
             <ul>
                 {
                     reviews && reviews.map(review => <li className="list-group-item list-group-item-action flex-column align-items-start active">
@@ -61,6 +67,9 @@ const DetailsScreen = () => {
                             posted by: <Link to={`/profile/${review.user_id}`}>{review.email}</Link>
                         {
                             profile && profile._id === review.user_id && <div className={"btn m-2"}><button className={""} id={review.id} onClick={deleteReview}>Delete</button></div>
+                        }
+                        {
+                            profile && profile.userType === "user" && <div className={"btn m-2"}><button className={""} id={review.id} onClick={upvoteReview}>Upvote</button></div>
                         }
 
                         </li>

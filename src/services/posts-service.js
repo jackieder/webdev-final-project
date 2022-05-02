@@ -31,13 +31,14 @@ export const updatePost = async (post) => {
         .put(`${POSTS_API}/${post._id}`, post);
     return response;
 }
-export const deletePost = async (post) => {
+export const deletePost = async (id) => {
     const response = await axios
-        .delete(`${POSTS_API}/${post._id}`);
+        .delete(`${POSTS_API}/${id}`);
     return response;
 }
 
 export const findReviewsByUser = async (userId) => {
-    const response = await axios.get(`${POSTS_API}/&user=${userId}`)
+    const response = await axios.get(`${POSTS_API}?user=${userId}`)
+    console.log(response)
     return response;
 }

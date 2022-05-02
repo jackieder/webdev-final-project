@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import axios from "axios";
 import NavigationBar from "./../components/Navigation";
 import {Link, useNavigate, useParams} from "react-router-dom";
-import {findPosts} from "../services/posts-service";
+import {deletePost, findPosts} from "../services/posts-service";
 import {useDispatch, useSelector} from "react-redux";
 import {useProfile} from "../contexts/profile-context";
 import CreatePost from "../components/Feed/CreatePost";
@@ -22,13 +22,17 @@ const DetailsScreen = () => {
     }
     const getReviews = async () => {
         const response = await findPosts(imdbID)
-        console.log("gettingrevuews", response)
         setReviews(response)
     }
     const getUser = async (id) => {
         const response = await findUser(id)
         const email = response.email
         return email
+    }
+    const deleteReview = async (event) => {
+        const reviewId = event.target.id
+        const response = await deletePost(reviewId)
+        getReviews()
     }
     useEffect(() => {
     getDetails()
@@ -54,7 +58,10 @@ const DetailsScreen = () => {
                             <div className="d-flex w-100 justify-content-between">
                                 <h3 className="mb-1">{review.text}</h3>
                             </div>
-                            <small>posted by: {review.email}</small>
+                            posted by: <Link to={`/profile/${review.user_id}`}>{review.email}</Link>
+                        {
+                            profile && profile._id === review.user_id && <div className={"btn m-2"}><button className={""} id={review.id} onClick={deleteReview}>Delete</button></div>
+                        }
 
                         </li>
 
